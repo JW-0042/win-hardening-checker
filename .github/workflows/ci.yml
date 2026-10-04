@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet build HardeningChecker.slnx -c Release
+      - run: dotnet test HardeningChecker.slnx -c Release --no-build
+      - name: Smoke test the CLI on the runner
+        shell: pwsh
+        run: |
+          dotnet run --project src/HardeningChecker.Cli -c Release --no-build -- --json scan.json --quiet
+          if ($LASTEXITCODE -gt 1) { exit $LASTEXITCODE }
+          $r = Get-Content scan.json | ConvertFrom-Json
+          "Score $($r.score) with $($r.results.Count) checks"
+          if ($r.results.Count -lt 20) { throw "Too few outcomes" }
+          exit 0

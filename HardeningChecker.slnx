@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/HardeningChecker.App/HardeningChecker.App.csproj" />
+    <Project Path="src/HardeningChecker.Cli/HardeningChecker.Cli.csproj" />
+    <Project Path="src/HardeningChecker.Core/HardeningChecker.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HardeningChecker.Tests/HardeningChecker.Tests.csproj" />
+  </Folder>
+</Solution>

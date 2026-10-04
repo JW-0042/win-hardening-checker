@@ -1,0 +1,12 @@
+<Application x:Class="HardeningChecker.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HardeningChecker.App"
+             ThemeMode="System"
+             ShutdownMode="OnMainWindowClose">
+    <Application.Resources>
+        <local:StatusBrushConverter x:Key="StatusBrush" />
+        <local:BoolToVisibilityConverter x:Key="BoolToVis" />
+        <local:BoolToVisibilityConverter x:Key="BoolToVisInverted" Invert="True" />
+    </Application.Resources>
+</Application>

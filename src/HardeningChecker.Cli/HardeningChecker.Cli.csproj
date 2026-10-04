@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\HardeningChecker.Core\HardeningChecker.Core.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>hardening-check</AssemblyName>
+    
+    
+    
+  </PropertyGroup>
+
+</Project>
